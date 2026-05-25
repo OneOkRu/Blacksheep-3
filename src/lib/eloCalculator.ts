@@ -119,15 +119,16 @@ export function recalculateEloRatings(data: RatingData): RatingData {
     }
 
     // Underdog protection: if winner was much stronger, we dampen/cancel the margin penalty
+    // Since ELO changes are scaled up by ~8x (K=250), we scale the thresholds (80 -> 600, 150 -> 1200)
     const ratingDifference = Math.abs(r1 - r2);
-    if (ratingDifference > 80 && marginFactor > 1.0) {
+    if (ratingDifference > 600.0 && marginFactor > 1.0) {
       marginFactor = 1.0; // dampen elevated penalty to standard
     }
-    if (ratingDifference > 150) {
+    if (ratingDifference > 1200.0) {
       marginFactor = 0.5; // crush penalty to minimal if discrepancy is major
     }
 
-    const K = 32.0;
+    const K = 250.0;
 
     // Delta calculation
     const rawDelta = K * (actual1 - expected1) * marginFactor;

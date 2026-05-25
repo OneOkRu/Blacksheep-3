@@ -46,7 +46,7 @@
       "skinNickname": "ClubOne_",
       "points": 20,
       "tournamentPoints": 0,
-      "elo": 1081.5,
+      "elo": 1427.4,
       "badge": "HT4",
       "tier": "S",
       "tierScores": {
@@ -182,10 +182,72 @@
         }
       ],
       "eloScores": {
-        "axe": 1049.2,
-        "sword": 1113.7,
-        "overall": 1081.5
-      }
+        "axe": 1362.7,
+        "sword": 1492.1,
+        "overall": 1427.4
+      },
+      "eloHistory": [
+        {
+          "date": "2026-04-24",
+          "overall": 1000,
+          "axe": 1000,
+          "sword": 1000
+        },
+        {
+          "date": "2026-04-25T10:59:13.868Z",
+          "overall": 1160.8,
+          "axe": 1000,
+          "sword": 1321.5
+        },
+        {
+          "date": "2026-04-25T10:59:22.185Z",
+          "overall": 1185,
+          "axe": 1000,
+          "sword": 1370
+        },
+        {
+          "date": "2026-04-25T10:59:54.714Z",
+          "overall": 1202.7,
+          "axe": 1000,
+          "sword": 1405.4
+        },
+        {
+          "date": "2026-04-25T11:01:37.947Z",
+          "overall": 1140.2,
+          "axe": 875,
+          "sword": 1405.4
+        },
+        {
+          "date": "2026-04-25T11:01:48.941Z",
+          "overall": 1342.3,
+          "axe": 1279.2,
+          "sword": 1405.4
+        },
+        {
+          "date": "2026-04-25T11:01:57.720Z",
+          "overall": 1384.1,
+          "axe": 1362.7,
+          "sword": 1405.4
+        },
+        {
+          "date": "2026-04-25T11:04:17.894Z",
+          "overall": 1397.5,
+          "axe": 1362.7,
+          "sword": 1432.3
+        },
+        {
+          "date": "2026-05-25T20:30:51.312Z",
+          "overall": 1426.3,
+          "axe": 1362.7,
+          "sword": 1489.9
+        },
+        {
+          "date": "2026-05-25T20:31:08.956Z",
+          "overall": 1427.4,
+          "axe": 1362.7,
+          "sword": 1492.1
+        }
+      ]
     },
     {
       "id": "hvohxy234",
@@ -193,7 +255,7 @@
       "skinNickname": "Solleise",
       "points": 18,
       "tournamentPoints": 0,
-      "elo": 961.8,
+      "elo": 656.2,
       "badge": "",
       "tier": "S",
       "tierScores": {
@@ -341,10 +403,90 @@
         }
       ],
       "eloScores": {
-        "axe": 981.1,
-        "sword": 942.5,
-        "overall": 961.8
-      }
+        "axe": 720.8,
+        "sword": 591.5,
+        "overall": 656.2
+      },
+      "eloHistory": [
+        {
+          "date": "2026-04-24",
+          "overall": 1000,
+          "axe": 1000,
+          "sword": 1000
+        },
+        {
+          "date": "2026-04-25T10:58:49.393Z",
+          "overall": 1140,
+          "axe": 1000,
+          "sword": 1279.9
+        },
+        {
+          "date": "2026-04-25T10:59:04.260Z",
+          "overall": 1155.9,
+          "axe": 1000,
+          "sword": 1311.7
+        },
+        {
+          "date": "2026-04-25T10:59:13.868Z",
+          "overall": 995.1,
+          "axe": 1000,
+          "sword": 990.2
+        },
+        {
+          "date": "2026-04-25T10:59:22.185Z",
+          "overall": 970.9,
+          "axe": 1000,
+          "sword": 941.7
+        },
+        {
+          "date": "2026-04-25T10:59:43.073Z",
+          "overall": 988.6,
+          "axe": 1000,
+          "sword": 977.1
+        },
+        {
+          "date": "2026-04-25T10:59:54.714Z",
+          "overall": 970.9,
+          "axe": 1000,
+          "sword": 941.7
+        },
+        {
+          "date": "2026-04-25T11:01:37.947Z",
+          "overall": 1033.4,
+          "axe": 1125,
+          "sword": 941.7
+        },
+        {
+          "date": "2026-04-25T11:01:48.941Z",
+          "overall": 831.3,
+          "axe": 720.8,
+          "sword": 941.7
+        },
+        {
+          "date": "2026-05-25T20:30:30.362Z",
+          "overall": 771.9,
+          "axe": 720.8,
+          "sword": 823
+        },
+        {
+          "date": "2026-05-25T20:31:28.247Z",
+          "overall": 789.8,
+          "axe": 720.8,
+          "sword": 858.8
+        },
+        {
+          "date": "2026-05-25T20:33:10.559Z",
+          "overall": 691.1,
+          "axe": 720.8,
+          "sword": 661.3
+        },
+        {
+          "date": "2026-05-25T20:33:32.453Z",
+          "overall": 656.2,
+          "axe": 720.8,
+          "sword": 591.5
+        }
+      ]
     },
     {
       "id": "fbjpzq3af",
@@ -352,7 +494,7 @@
       "skinNickname": "LaGoat7112",
       "points": 16,
       "tournamentPoints": 0,
-      "elo": 991.8,
+      "elo": 1020.4,
       "badge": "",
       "tier": "A",
       "tierScores": {
@@ -422,9 +564,46 @@
         }
       ],
       "eloScores": {
-        "sword": 991.8,
-        "overall": 991.8
-      }
+        "sword": 1020.4,
+        "overall": 1020.4
+      },
+      "eloHistory": [
+        {
+          "date": "2026-04-24",
+          "overall": 1000,
+          "sword": 1000
+        },
+        {
+          "date": "2026-04-25T10:58:32.126Z",
+          "overall": 1187.5,
+          "sword": 1187.5
+        },
+        {
+          "date": "2026-04-25T10:58:49.393Z",
+          "overall": 907.6,
+          "sword": 907.6
+        },
+        {
+          "date": "2026-04-25T11:04:17.894Z",
+          "overall": 880.7,
+          "sword": 880.7
+        },
+        {
+          "date": "2026-05-25T20:30:05.500Z",
+          "overall": 959.3,
+          "sword": 959.3
+        },
+        {
+          "date": "2026-05-25T20:30:30.362Z",
+          "overall": 1078,
+          "sword": 1078
+        },
+        {
+          "date": "2026-05-25T20:30:51.312Z",
+          "overall": 1020.4,
+          "sword": 1020.4
+        }
+      ]
     },
     {
       "id": "nl061d1bh",
@@ -439,7 +618,8 @@
         "sword": "D"
       },
       "history": [],
-      "eloScores": {}
+      "eloScores": {},
+      "eloHistory": []
     },
     {
       "id": "lozncbrq5",
@@ -454,7 +634,8 @@
         "sword": "D"
       },
       "history": [],
-      "eloScores": {}
+      "eloScores": {},
+      "eloHistory": []
     },
     {
       "id": "4pb1y3uk4",
@@ -462,7 +643,7 @@
       "skinNickname": "Nekaa_",
       "points": 16,
       "tournamentPoints": 0,
-      "elo": 960.9,
+      "elo": 906.3,
       "badge": "",
       "tier": "A",
       "tierScores": {
@@ -550,10 +731,72 @@
         }
       ],
       "eloScores": {
-        "axe": 969.7,
-        "sword": 952,
-        "overall": 960.9
-      }
+        "axe": 916.5,
+        "sword": 896,
+        "overall": 906.3
+      },
+      "eloHistory": [
+        {
+          "date": "2026-04-24",
+          "overall": 1000,
+          "axe": 1000,
+          "sword": 1000
+        },
+        {
+          "date": "2026-04-25T10:58:32.126Z",
+          "overall": 906.3,
+          "axe": 1000,
+          "sword": 812.5
+        },
+        {
+          "date": "2026-04-25T10:59:04.260Z",
+          "overall": 890.4,
+          "axe": 1000,
+          "sword": 780.7
+        },
+        {
+          "date": "2026-04-25T10:59:43.073Z",
+          "overall": 872.7,
+          "axe": 1000,
+          "sword": 745.3
+        },
+        {
+          "date": "2026-04-25T11:01:57.720Z",
+          "overall": 830.9,
+          "axe": 916.5,
+          "sword": 745.3
+        },
+        {
+          "date": "2026-05-25T20:30:05.500Z",
+          "overall": 791.6,
+          "axe": 916.5,
+          "sword": 666.7
+        },
+        {
+          "date": "2026-05-25T20:31:08.956Z",
+          "overall": 790.5,
+          "axe": 916.5,
+          "sword": 664.5
+        },
+        {
+          "date": "2026-05-25T20:31:28.247Z",
+          "overall": 772.6,
+          "axe": 916.5,
+          "sword": 628.7
+        },
+        {
+          "date": "2026-05-25T20:33:10.559Z",
+          "overall": 871.4,
+          "axe": 916.5,
+          "sword": 826.2
+        },
+        {
+          "date": "2026-05-25T20:33:32.453Z",
+          "overall": 906.3,
+          "axe": 916.5,
+          "sword": 896
+        }
+      ]
     },
     {
       "id": "1bqm5d1vf",
@@ -568,7 +811,8 @@
         "sword": "C"
       },
       "history": [],
-      "eloScores": {}
+      "eloScores": {},
+      "eloHistory": []
     }
   ],
   "tournaments": [
@@ -1666,8 +1910,8 @@
       "player1Id": "4pb1y3uk4",
       "player2Id": "hvohxy234",
       "winnerId": "4pb1y3uk4",
-      "eloChange1": 17.1,
-      "eloChange2": -17.1,
+      "eloChange1": 69.8,
+      "eloChange2": -69.8,
       "score1": 10,
       "score2": 7
     },
@@ -1678,8 +1922,8 @@
       "player1Id": "hvohxy234",
       "player2Id": "4pb1y3uk4",
       "winnerId": "4pb1y3uk4",
-      "eloChange1": -18.8,
-      "eloChange2": 18.8,
+      "eloChange1": -197.5,
+      "eloChange2": 197.5,
       "score1": 6,
       "score2": 10
     },
@@ -1690,8 +1934,8 @@
       "player1Id": "hvohxy234",
       "player2Id": "4pb1y3uk4",
       "winnerId": "hvohxy234",
-      "eloChange1": 6.9,
-      "eloChange2": -6.9,
+      "eloChange1": 35.8,
+      "eloChange2": -35.8,
       "score1": 10,
       "score2": 9
     },
@@ -1702,8 +1946,8 @@
       "player1Id": "b23nz3hj7",
       "player2Id": "4pb1y3uk4",
       "winnerId": "b23nz3hj7",
-      "eloChange1": 4.1,
-      "eloChange2": -4.1,
+      "eloChange1": 2.2,
+      "eloChange2": -2.2,
       "score1": 10,
       "score2": 5
     },
@@ -1714,8 +1958,8 @@
       "player1Id": "b23nz3hj7",
       "player2Id": "fbjpzq3af",
       "winnerId": "b23nz3hj7",
-      "eloChange1": 11.8,
-      "eloChange2": -11.8,
+      "eloChange1": 57.6,
+      "eloChange2": -57.6,
       "score1": 10,
       "score2": 1
     },
@@ -1726,8 +1970,8 @@
       "player1Id": "fbjpzq3af",
       "player2Id": "hvohxy234",
       "winnerId": "fbjpzq3af",
-      "eloChange1": 16,
-      "eloChange2": -16,
+      "eloChange1": 118.7,
+      "eloChange2": -118.7,
       "score1": 10,
       "score2": 6
     },
@@ -1738,8 +1982,8 @@
       "player1Id": "fbjpzq3af",
       "player2Id": "4pb1y3uk4",
       "winnerId": "fbjpzq3af",
-      "eloChange1": 14.6,
-      "eloChange2": -14.6,
+      "eloChange1": 78.6,
+      "eloChange2": -78.6,
       "score1": 10,
       "score2": 7
     },
@@ -1750,8 +1994,8 @@
       "player1Id": "b23nz3hj7",
       "player2Id": "fbjpzq3af",
       "winnerId": "b23nz3hj7",
-      "eloChange1": 25.3,
-      "eloChange2": -25.3,
+      "eloChange1": 26.9,
+      "eloChange2": -26.9,
       "score1": 10,
       "score2": 0
     },
@@ -1762,8 +2006,8 @@
       "player1Id": "b23nz3hj7",
       "player2Id": "4pb1y3uk4",
       "winnerId": "b23nz3hj7",
-      "eloChange1": 30.3,
-      "eloChange2": -30.3,
+      "eloChange1": 83.5,
+      "eloChange2": -83.5,
       "score1": 10,
       "score2": 1
     },
@@ -1774,8 +2018,8 @@
       "player1Id": "b23nz3hj7",
       "player2Id": "hvohxy234",
       "winnerId": "b23nz3hj7",
-      "eloChange1": 34.9,
-      "eloChange2": -34.9,
+      "eloChange1": 404.2,
+      "eloChange2": -404.2,
       "score1": 10,
       "score2": 1
     },
@@ -1786,8 +2030,8 @@
       "player1Id": "hvohxy234",
       "player2Id": "b23nz3hj7",
       "winnerId": "hvohxy234",
-      "eloChange1": 16,
-      "eloChange2": -16,
+      "eloChange1": 125,
+      "eloChange2": -125,
       "score1": 10,
       "score2": 7
     },
@@ -1798,8 +2042,8 @@
       "player1Id": "b23nz3hj7",
       "player2Id": "hvohxy234",
       "winnerId": "b23nz3hj7",
-      "eloChange1": 21,
-      "eloChange2": -21,
+      "eloChange1": 35.4,
+      "eloChange2": -35.4,
       "score1": 10,
       "score2": 3
     },
@@ -1810,8 +2054,8 @@
       "player1Id": "hvohxy234",
       "player2Id": "4pb1y3uk4",
       "winnerId": "hvohxy234",
-      "eloChange1": 6.8,
-      "eloChange2": -6.8,
+      "eloChange1": 35.4,
+      "eloChange2": -35.4,
       "score1": 10,
       "score2": 9
     },
@@ -1822,8 +2066,8 @@
       "player1Id": "b23nz3hj7",
       "player2Id": "hvohxy234",
       "winnerId": "b23nz3hj7",
-      "eloChange1": 23.9,
-      "eloChange2": -23.9,
+      "eloChange1": 48.5,
+      "eloChange2": -48.5,
       "score1": 10,
       "score2": 3
     },
@@ -1834,8 +2078,8 @@
       "player1Id": "b23nz3hj7",
       "player2Id": "hvohxy234",
       "winnerId": "b23nz3hj7",
-      "eloChange1": 27.6,
-      "eloChange2": -27.6,
+      "eloChange1": 321.5,
+      "eloChange2": -321.5,
       "score1": 10,
       "score2": 3
     },
@@ -1846,8 +2090,8 @@
       "player1Id": "hvohxy234",
       "player2Id": "4pb1y3uk4",
       "winnerId": "hvohxy234",
-      "eloChange1": 27.5,
-      "eloChange2": -27.5,
+      "eloChange1": 31.8,
+      "eloChange2": -31.8,
       "score1": 10,
       "score2": 1
     },
@@ -1858,8 +2102,8 @@
       "player1Id": "hvohxy234",
       "player2Id": "fbjpzq3af",
       "winnerId": "hvohxy234",
-      "eloChange1": 25.7,
-      "eloChange2": -25.7,
+      "eloChange1": 279.9,
+      "eloChange2": -279.9,
       "score1": 10,
       "score2": 5
     },
@@ -1870,8 +2114,8 @@
       "player1Id": "fbjpzq3af",
       "player2Id": "4pb1y3uk4",
       "winnerId": "fbjpzq3af",
-      "eloChange1": 24,
-      "eloChange2": -24,
+      "eloChange1": 187.5,
+      "eloChange2": -187.5,
       "score1": 10,
       "score2": 4
     }
