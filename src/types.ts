@@ -5,6 +5,13 @@ export interface PlayerHistory {
   position: number;
 }
 
+export interface EloHistoryEntry {
+  date: string;
+  overall: number;
+  axe?: number;
+  sword?: number;
+}
+
 export interface Player {
   id: string;
   nickname: string;
@@ -17,6 +24,7 @@ export interface Player {
   tier: string; // e.g. HT1, LT1
   tierScores: Record<string, string>; // tierId -> tier string
   history: PlayerHistory[];
+  eloHistory?: EloHistoryEntry[];
 }
 
 export interface Tournament {

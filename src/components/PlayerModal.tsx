@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { Player, Tournament, ArchiveSnapshot, Match } from '../types';
@@ -16,6 +16,8 @@ interface PlayerModalProps {
 
 export const PlayerModal: React.FC<PlayerModalProps> = ({ player, tournaments = [], archives = [], matches = [], players = [], onClose }) => {
   if (!player) return null;
+
+  const [evolutionTab, setEvolutionTab] = useState<'points' | 'elo'>('elo');
 
   // Build evolution data from archives + current state + player history
   const evolutionData = [
@@ -49,6 +51,11 @@ export const PlayerModal: React.FC<PlayerModalProps> = ({ player, tournaments = 
     }
     return acc;
   }, []).sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+
+  // Build ELO history data from player.eloHistory
+  const eloEvolutionData = player.eloHistory || [];
+  const hasAxeHistory = eloEvolutionData.some(h => h.axe !== undefined && h.axe !== null);
+  const hasSwordHistory = eloEvolutionData.some(h => h.sword !== undefined && h.sword !== null);
 
   return (
     <AnimatePresence>
@@ -117,45 +124,132 @@ export const PlayerModal: React.FC<PlayerModalProps> = ({ player, tournaments = 
 
           <div className="p-4 sm:p-8 space-y-6 sm:space-y-10">
             <div>
-              <h3 className="text-[9px] sm:text-[10px] font-bold text-brand-text-muted uppercase tracking-[0.3em] mb-4 sm:mb-6">Rating Evolution</h3>
+              <div className="flex items-center justify-between mb-4 sm:mb-6 flex-wrap gap-4">
+                <h3 className="text-[9px] sm:text-[10px] font-bold text-brand-text-muted uppercase tracking-[0.3em]">
+                  {evolutionTab === 'points' ? "Points Evolution" : "ELO Evolution"}
+                </h3>
+                <div className="flex bg-white/[0.03] border border-brand-border rounded-xl p-0.5 gap-1 shadow-inner">
+                  <button
+                    onClick={() => setEvolutionTab('elo')}
+                    className={cn(
+                      "px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-wider transition-all",
+                      evolutionTab === 'elo'
+                        ? "bg-white/10 text-white shadow"
+                        : "text-brand-text-muted hover:text-white"
+                    )}
+                  >
+                    ELO
+                  </button>
+                  <button
+                    onClick={() => setEvolutionTab('points')}
+                    className={cn(
+                      "px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-wider transition-all",
+                      evolutionTab === 'points'
+                        ? "bg-white/10 text-white shadow"
+                        : "text-brand-text-muted hover:text-white"
+                    )}
+                  >
+                    Points
+                  </button>
+                </div>
+              </div>
+
               <div className="h-48 sm:h-64 w-full">
                 <ResponsiveContainer width="100%" height="100%">
-                  <LineChart data={evolutionData} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="#2d2828" vertical={false} />
-                    <XAxis 
-                      dataKey="date" 
-                      stroke="#a19b9b" 
-                      fontSize={10} 
-                      tickLine={false}
-                      axisLine={false}
-                      tickFormatter={(val) => new Date(val).toLocaleDateString(undefined, { month: 'short', year: '2-digit' })}
-                    />
-                    <YAxis 
-                      stroke="#a19b9b" 
-                      fontSize={10} 
-                      tickLine={false}
-                      axisLine={false}
-                      domain={['auto', 'auto']}
-                    />
-                    <Tooltip
-                      contentStyle={{ backgroundColor: '#221d1d', borderColor: '#2d2828', borderRadius: '12px', color: '#ffffff', fontSize: '12px' }}
-                      itemStyle={{ color: '#facc15' }}
-                      labelStyle={{ color: '#a19b9b', marginBottom: '4px', fontWeight: 'bold' }}
-                      labelFormatter={(label, items) => {
-                        const item = items[0]?.payload;
-                        return `${new Date(label).toLocaleDateString()} ${item?.name ? `(${item.name})` : ''}`;
-                      }}
-                    />
-                    <Line 
-                      type="monotone" 
-                      dataKey="points" 
-                      name="Points"
-                      stroke="#10b981" 
-                      strokeWidth={3} 
-                      dot={{ fill: '#10b981', strokeWidth: 0, r: 4 }} 
-                      activeDot={{ r: 6, strokeWidth: 0 }}
-                    />
-                  </LineChart>
+                  {evolutionTab === 'points' ? (
+                    <LineChart data={evolutionData} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
+                      <CartesianGrid strokeDasharray="3 3" stroke="#2d2828" vertical={false} />
+                      <XAxis 
+                        dataKey="date" 
+                        stroke="#a19b9b" 
+                        fontSize={10} 
+                        tickLine={false}
+                        axisLine={false}
+                        tickFormatter={(val) => new Date(val).toLocaleDateString(undefined, { month: 'short', year: '2-digit' })}
+                      />
+                      <YAxis 
+                        stroke="#a19b9b" 
+                        fontSize={10} 
+                        tickLine={false}
+                        axisLine={false}
+                        domain={['auto', 'auto']}
+                      />
+                      <Tooltip
+                        contentStyle={{ backgroundColor: '#221d1d', borderColor: '#2d2828', borderRadius: '12px', color: '#ffffff', fontSize: '12px' }}
+                        itemStyle={{ color: '#facc15' }}
+                        labelStyle={{ color: '#a19b9b', marginBottom: '4px', fontWeight: 'bold' }}
+                        labelFormatter={(label, items) => {
+                          const item = items[0]?.payload;
+                          return `${new Date(label).toLocaleDateString()} ${item?.name ? `(${item.name})` : ''}`;
+                        }}
+                      />
+                      <Line 
+                        type="monotone" 
+                        dataKey="points" 
+                        name="Points"
+                        stroke="#10b981" 
+                        strokeWidth={3} 
+                        dot={{ fill: '#10b981', strokeWidth: 0, r: 4 }} 
+                        activeDot={{ r: 6, strokeWidth: 0 }}
+                      />
+                    </LineChart>
+                  ) : (
+                    <LineChart data={eloEvolutionData} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
+                      <CartesianGrid strokeDasharray="3 3" stroke="#2d2828" vertical={false} />
+                      <XAxis 
+                        dataKey="date" 
+                        stroke="#a19b9b" 
+                        fontSize={10} 
+                        tickLine={false}
+                        axisLine={false}
+                        tickFormatter={(val) => new Date(val).toLocaleDateString(undefined, { month: 'short', year: '2-digit' })}
+                      />
+                      <YAxis 
+                        stroke="#a19b9b" 
+                        fontSize={10} 
+                        tickLine={false}
+                        axisLine={false}
+                        domain={['auto', 'auto']}
+                      />
+                      <Tooltip
+                        contentStyle={{ backgroundColor: '#221d1d', borderColor: '#2d2828', borderRadius: '12px', color: '#ffffff', fontSize: '12px' }}
+                        itemStyle={{ padding: '2px 0' }}
+                        labelStyle={{ color: '#a19b9b', marginBottom: '4px', fontWeight: 'bold' }}
+                        labelFormatter={(label) => new Date(label).toLocaleDateString()}
+                      />
+                      <Line 
+                        type="monotone" 
+                        dataKey="overall" 
+                        name="Overall ELO"
+                        stroke="#eab308" 
+                        strokeWidth={3} 
+                        dot={{ fill: '#eab308', strokeWidth: 0, r: 4 }} 
+                        activeDot={{ r: 6, strokeWidth: 0 }}
+                      />
+                      {hasSwordHistory && (
+                        <Line 
+                          type="monotone" 
+                          dataKey="sword" 
+                          name="Sword ELO"
+                          stroke="#3b82f6" 
+                          strokeWidth={2} 
+                          dot={{ fill: '#3b82f6', strokeWidth: 0, r: 3 }} 
+                          activeDot={{ r: 5, strokeWidth: 0 }}
+                        />
+                      )}
+                      {hasAxeHistory && (
+                        <Line 
+                          type="monotone" 
+                          dataKey="axe" 
+                          name="Axe ELO"
+                          stroke="#f43f5e" 
+                          strokeWidth={2} 
+                          dot={{ fill: '#f43f5e', strokeWidth: 0, r: 3 }} 
+                          activeDot={{ r: 5, strokeWidth: 0 }}
+                        />
+                      )}
+                    </LineChart>
+                  )}
                 </ResponsiveContainer>
               </div>
             </div>

@@ -60,6 +60,9 @@ export function recalculateEloRatings(data: RatingData): RatingData {
     });
   });
 
+  // Track daily ELO history elements for each player
+  const eloHistoryMap = new Map<string, Array<{ date: string; overall: number; axe?: number; sword?: number }>>();
+
   // Re-sort matches chronologically, preserving original array index for matches on the same day
   const sortedMatches = matches.map((m, idx) => ({ m, idx })).sort((a, b) => {
     const timeA = new Date(a.m.date).getTime();
@@ -150,6 +153,43 @@ export function recalculateEloRatings(data: RatingData): RatingData {
       change1: finalDelta1,
       change2: finalDelta2
     };
+
+    // Helper to calculate total player ratings after this specific match
+    const getPlayerRatings = (playerId: string) => {
+      let sum = 0;
+      let count = 0;
+      const scores: Record<string, number> = {};
+      activeTiers.forEach(t => {
+        const rating = currentRatings[playerId]?.[t.id];
+        if (rating !== undefined) {
+          scores[t.id] = Math.round(rating * 10) / 10;
+          sum += rating;
+          count++;
+        }
+      });
+      const overall = count > 0 ? Math.round((sum / count) * 10) / 10 : 1000.0;
+      return { overall, scores };
+    };
+
+    const r1State = getPlayerRatings(p1Id);
+    const r2State = getPlayerRatings(p2Id);
+
+    if (!eloHistoryMap.has(p1Id)) eloHistoryMap.set(p1Id, []);
+    if (!eloHistoryMap.has(p2Id)) eloHistoryMap.set(p2Id, []);
+
+    eloHistoryMap.get(p1Id)!.push({
+      date: m.date,
+      overall: r1State.overall,
+      axe: r1State.scores['axe'],
+      sword: r1State.scores['sword']
+    });
+
+    eloHistoryMap.get(p2Id)!.push({
+      date: m.date,
+      overall: r2State.overall,
+      axe: r2State.scores['axe'],
+      sword: r2State.scores['sword']
+    });
   });
 
   // Map the calculated dynamic Elo changes back to the matches array
@@ -189,6 +229,30 @@ export function recalculateEloRatings(data: RatingData): RatingData {
       p.elo = undefined;
       p.eloScores!['overall'] = undefined;
     }
+
+    // Now populate eloHistory with unique date values
+    const rawHistory = eloHistoryMap.get(p.id) || [];
+    const uniqueDateHistory: Record<string, { date: string; overall: number; axe?: number; sword?: number }> = {};
+
+    if (rawHistory.length > 0) {
+      const firstMatchDate = rawHistory[0].date;
+      const baselineDate = new Date(new Date(firstMatchDate).getTime() - 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+      const hasAxe = playerHasMatchesInTier.get(p.id)?.has('axe');
+      const hasSword = playerHasMatchesInTier.get(p.id)?.has('sword');
+
+      uniqueDateHistory[baselineDate] = {
+        date: baselineDate,
+        overall: 1000.0,
+        axe: hasAxe ? 1000.0 : undefined,
+        sword: hasSword ? 1000.0 : undefined
+      };
+    }
+
+    rawHistory.forEach(h => {
+      uniqueDateHistory[h.date] = h;
+    });
+
+    p.eloHistory = Object.values(uniqueDateHistory).sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
   });
 
   return {
