@@ -1,0 +1,6 @@
+{
+  "name": "Blacksheep Rating",
+  "description": "Elo rating and tier lists for Minecraft PvP players, supporting Sword and Axe categories.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
